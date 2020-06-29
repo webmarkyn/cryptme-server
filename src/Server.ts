@@ -26,9 +26,6 @@ app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(fileUpload({
     limits: 5 * 1024 * 1024,
-    // useTempFiles: true,
-    // tempFileDir: '/tmp/'
-
 }));
 
 // Show routes called in console during development
