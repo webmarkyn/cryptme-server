@@ -1,6 +1,7 @@
 import * as crypto from "crypto";
 import fileUpload, { UploadedFile } from "express-fileupload";
 import { Response } from 'express';
+import { algoList } from '@shared/constants';
 
 // Types
 type Params = {
@@ -47,7 +48,12 @@ const checkFile = (files: fileUpload.FileArray | undefined): boolean => {
 const checkParams = ({ algo, key, salt }: Params): boolean => {
   if (!algo || !key || !salt) {
     return false;
-  } else return true;
+  }
+  const chosenAlgo = algoList[algo]
+  if (!chosenAlgo || parseInt(key) !== chosenAlgo.keyLength || parseInt(salt) !== chosenAlgo.ivLength ) {
+    return false
+  }
+  else return true;
 };
 
 // Set proper headers for the response
