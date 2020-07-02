@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { UploadedFile } from 'express-fileupload';
 import * as crypto from 'crypto';
 import { checkFile, checkParams, setupHeaders, cryptFileWithSalt } from 'src/utils';
+import { algoList } from '@shared/constants';
 
 // Init router and path
 const router = Router();
@@ -31,6 +32,10 @@ router.post('/decrypt', (req, res) => {
     const decrypted = cryptFileWithSalt(file, true, req.body)
     setupHeaders(res, file);
     res.end(decrypted);
+})
+
+router.get('/algorithms', (req, res) => {
+    res.send(JSON.stringify(algoList));
 })
 
 // Export the base-router
