@@ -27,7 +27,8 @@ app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(cors())
 app.use(fileUpload({
-    limits: 5 * 1024 * 1024,
+    limits: { fileSize: 5 * 1024 * 1024 },
+    abortOnLimit: true,
 }));
 
 // Show routes called in console during development

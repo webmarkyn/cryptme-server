@@ -50,7 +50,7 @@ const checkParams = ({ algo, key, salt }: Params): boolean => {
     return false;
   }
   const chosenAlgo = algoList[algo]
-  if (!chosenAlgo || parseInt(key) !== chosenAlgo.keyLength || parseInt(salt) !== chosenAlgo.ivLength ) {
+  if (!chosenAlgo || key.length !== chosenAlgo.keyLength || salt.length !== chosenAlgo.ivLength ) {
     return false
   }
   else return true;
