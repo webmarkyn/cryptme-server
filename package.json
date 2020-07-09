@@ -4,7 +4,7 @@
   "scripts": {
     "build": "node build.js",
     "lint": "tslint --project \"tsconfig.json\"",
-    "start": "node build.js && node -r module-alias/register ./dist --env=production",
+    "start": "node -r module-alias/register ./dist --env=production",
     "start:dev": "nodemon",
     "test": "nodemon --config ./spec/nodemon.json"
   },
@@ -40,6 +40,7 @@
     "http-status-codes": "^1.4.0",
     "module-alias": "^2.2.2",
     "morgan": "^1.10.0",
+    "tslib": "^2.0.0",
     "winston": "^3.3.3"
   },
   "devDependencies": {
