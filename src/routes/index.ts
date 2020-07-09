@@ -5,7 +5,7 @@ import {
   checkParams,
   setupHeaders,
   cryptFileWithSalt,
-} from "src/utils";
+} from "@utils/index";
 import { algoList } from "@shared/constants";
 
 // Init router and path
